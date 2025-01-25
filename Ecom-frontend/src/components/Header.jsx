@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header({search}) {
   let user = JSON.parse(localStorage.getItem('user-info'));
   let navigate = useNavigate();
 
@@ -32,11 +32,14 @@ function Header() {
           <Form className="d-flex">
             <Form.Control
               type="search"
+              onChange={(e)=>search(e.target.value)}
               placeholder="Search"
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success" className='text-white border-white'>Search</Button>
+            <Button variant="outline-success" className=' border-white'> 
+           <Link to='/search'className='text-white ' >Search</Link> 
+            </Button>
           </Form>
         {
           localStorage.getItem('user-info')?

@@ -58,6 +58,10 @@ class ProductController extends Controller
             'product' => $product,
         ], 200);
     }
+
+    public function searchProduct($key){
+        return Product::where('name', 'like', '%' . $key . '%')->get();
+        }
     
 
 }
